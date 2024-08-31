@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Management System</title>
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #5BC0DE;
+            --accent-color: #F0AD4E;
+            --background-color: #0e0e55;
+            --white: #FFFFFF;
+            --text-color: #FFFFFF;
+            --light-text: #CCCCCC;
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            display: flex;
+            height: 100%;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .sidebar h2 {
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .sidebar a:hover {
+            color: var(--accent-color);
+        }
+        
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            overflow-y: auto;
+        }
+        
+        .section {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: var(--accent-color);
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .dashboard-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .dashboard-item h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        
+        .dashboard-item p {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Healthcare Management System</h2>
+            <ul>
+                <li><a href="#" onclick="showSection('clerks')">Clerks Dashboard</a></li>
+                <li><a href="#" onclick="showSection('doctors')">Doctors Dashboard</a></li>
+                <li><a href="#" onclick="showSection('nurses')">Nurses Dashboard</a></li>
+                <li><a href="#" onclick="showSection('lab-technicians')">Lab Technicians Dashboard</a></li>
+                <li><a href="#" onclick="showSection('billing-clerks')">Billing Clerks Dashboard</a></li>
+                <li><a href="#" onclick="showSection('patients')">Patients Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div id="clerks" class="section">
+                <h2>Clerks Dashboard</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <h3>New Patients Today</h3>
+                        <p>12</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Appointments Scheduled</h3>
+                        <p>45</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Records Updated</h3>
+                        <p>78</p>
+                    </div>
+                </div>
+                <h3>Privileges:</h3>
+                <ul>
+                    <li>Create and update patient records</li>
+                    <li>Manage patient registration and admission details</li>
+                    <li>Schedule appointments</li>
+                    <li>Update contact information and personal details of patients</li>
+                    <li>Generate patient admission and discharge forms</li>
+                </ul>
+            </div>
+            <div id="doctors" class="section" style="display: none;">
+                <h2>Doctors Dashboard</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <h3>Patients Today</h3>
+                        <p>18</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Pending Test Results</h3>
+                        <p>7</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>New Referrals</h3>
+                        <p>3</p>
+                    </div>
+                </div>
+                <h3>Privileges:</h3>
+                <ul>
+                    <li>Access and update medical records</li>
+                    <li>View and add progress notes</li>
+                    <li>Prescribe medications, tests, and treatments</li>
+                    <li>View test results and medical history</li>
+                    <li>Schedule and manage patient appointments</li>
+                    <li>Refer patients to specialists</li>
+                    <li>Generate and sign medical certificates</li>
+                    <li>Communicate with patients and other healthcare providers</li>
+                </ul>
+            </div>
+            <div id="nurses" class="section" style="display: none;">
+                <h2>Nurses Dashboard</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <h3>Patients Under Care</h3>
+                        <p>25</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Medication Rounds</h3>
+                        <p>4</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Care Notes Added</h3>
+                        <p>56</p>
+                    </div>
+                </div>
+                <h3>Privileges:</h3>
+                <ul>
+                    <li>Access patient records relevant to their care</li>
+                    <li>Update medication administration records (MAR)</li>
+                    <li>Record daily care and monitoring notes</li>
+                    <li>Assist with scheduling and managing appointments</li>
+                    <li>Communicate with doctors and patients</li>
+                    <li>Update progress notes</li>
+                    <li>Manage shift schedules</li>
+                </ul>
+            </div>
+            <div id="lab-technicians" class="section" style="display: none;">
+                <h2>Lab Technicians Dashboard</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <h3>Tests Scheduled Today</h3>
+                        <p>32</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Results Pending</h3>
+                        <p>15</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Reports Generated</h3>
+                        <p>28</p>
+                    </div>
+                </div>
+                <h3>Privileges:</h3>
+                <ul>
+                    <li>Access and update test results</li>
+                    <li>Manage and schedule lab tests</li>
+                    <li>Record and upload test findings</li>
+                    <li>Communicate with doctors and patients regarding test statuses</li>
+                    <li>Generate test reports</li>
+                    <li>Manage lab inventory and supplies</li>
+                </ul>
+            </div>
+            <div id="billing-clerks" class="section" style="display: none;">
+                <h2>Billing Clerks Dashboard</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <h3>Invoices Generated</h3>
+                        <p>42</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Payments Processed</h3>
+                        <p>38</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Insurance Claims Filed</h3>
+                        <p>17</p>
+                    </div>
+                </div>
+                <h3>Privileges:</h3>
+                <ul>
+                    <li>Access billing and insurance information</li>
+                    <li>Process payments and generate receipts</li>
+                    <li>Manage insurance claims and status tracking</li>
+                    <li>Generate billing summaries and reports</li>
+                    <li>Communicate with patients regarding billing issues</li>
+                    <li>Update payment status and process refunds</li>
+                </ul>
+            </div>
+            <div id="patients" class="section" style="display: none;">
+                <h2>Patients Dashboard</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <h3>Upcoming Appointments</h3>
+                        <p>2</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>New Test Results</h3>
+                        <p>1</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h3>Unread Messages</h3>
+                        <p>3</p>
+                    </div>
+                </div>
+                <h3>Privileges:</h3>
+                <ul>
+                    <li>View personal medical records</li>
+                    <li>View upcoming appointments and test results</li>
+                    <li>Communicate with healthcare providers</li>
+                    <li>Access medical certificates, discharge summaries, and consent forms</li>
+                    <li>Book and manage appointments</li>
+                    <li>Update personal contact information</li>
+                    <li>View and manage billing information and payment statuses</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Show the first section by default
+        showSection('clerks');
+    </script>
+</body>
+</html>

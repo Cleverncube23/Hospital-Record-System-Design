@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home Page</title>
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #5BC0DE;
+            --accent-color: #F0AD4E;
+            --background-color: #0e0e55;
+            --white: #FFFFFF;
+            --text-color: #FFFFFF;
+            --light-text: #CCCCCC;
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            display: flex;
+            height: 100%;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 20px;
+        }
+        
+        .sidebar h2 {
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .sidebar a:hover {
+            color: var(--accent-color);
+        }
+        
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 1px solid var(--secondary-color);
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+            color: var(--background-color);
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .modal-content {
+            background-color: var(--background-color);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid var(--secondary-color);
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .close {
+            color: var(--light-text);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: var(--white);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input, form select {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid var(--secondary-color);
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+        
+        .section {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="#" onclick="showSection('users')">Users</a></li>
+                <li><a href="#" onclick="showSection('patients')">Patients</a></li>
+                <li><a href="#" onclick="showSection('medical-records')">Medical Records</a></li>
+                <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+                <li><a href="#" onclick="showSection('settings')">System Settings</a></li>
+                <li><a href="#" onclick="showSection('view-all-data')">View All Data</a></li>
+                <li><a href="#" onclick="showSection('reports')">Reports</a></li>
+                <li><a href="#" onclick="showSection('roles-permissions')">Roles & Permissions</a></li>
+                <li><a href="#" onclick="showSection('system-logs')">System Logs</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div id="users" class="section">
+                <h2>User Management</h2>
+                <button onclick="openModal()">Create New User</button>
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- User data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="patients" class="section" style="display: none;">
+                <h2>Patient Management</h2>
+                <p>Patient management functionality to be implemented.</p>
+            </div>
+            <div id="medical-records" class="section" style="display: none;">
+                <h2>Medical Records</h2>
+                <p>Medical records functionality to be implemented.</p>
+            </div>
+            <div id="dashboard" class="section" style="display: none;">
+                <h2>Dashboard</h2>
+                <p>Dashboard functionality to be implemented.</p>
+            </div>
+            <div id="settings" class="section" style="display: none;">
+                <h2>System Settings</h2>
+                <p>System settings functionality to be implemented.</p>
+            </div>
+            <div id="view-all-data" class="section" style="display: none;">
+                <h2>View All Data</h2>
+                <p>View all data functionality to be implemented.</p>
+            </div>
+            <div id="reports" class="section" style="display: none;">
+                <h2>Reports</h2>
+                <p>Reports functionality to be implemented.</p>
+            </div>
+            <div id="roles-permissions" class="section" style="display: none;">
+                <h2>Roles & Permissions</h2>
+                <p>Roles and permissions functionality to be implemented.</p>
+            </div>
+            <div id="system-logs" class="section" style="display: none;">
+                <h2>System Logs</h2>
+                <p>System logs functionality to be implemented.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="createUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Create New User</h2>
+            <form id="createUserForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <select id="role" required>
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="nurse">Nurse</option>
+                </select>
+                <button type="submit">Create User</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simulated API calls
+        async function fetchUsers() {
+            // In a real application, this would be an API call
+            return [
+                { username: 'admin1', role: 'Admin' },
+                { username: 'doctor1', role: 'Doctor' },
+                { username: 'nurse1', role: 'Nurse' }
+            ];
+        }
+
+        async function createUser(userData) {
+            // In a real application, this would be an API call
+            console.log('User created:', userData);
+            return { ...userData, id: Date.now() };
+        }
+
+        // UI Functions
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function openModal() {
+            document.getElementById('createUserModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('createUserModal').style.display = 'none';
+        }
+
+        function populateUserTable(users) {
+            const tableBody = document.querySelector('#userTable tbody');
+            tableBody.innerHTML = '';
+            users.forEach(user => {
+                const row = `
+                    <tr>
+                        <td>${user.username}</td>
+                        <td>${user.role}</td>
+                        <td><button onclick="editUser('${user.username}')">Edit</button></td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function editUser(username) {
+            alert(`Edit functionality for ${username} to be implemented.`);
+        }
+
+        // Event Listeners
+        document.getElementById('createUserForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userData = {
+                username: document.getElementById('username').value,
+                password: document.getElementById('password').value,
+                role: document.getElementById('role').value
+            };
+            await createUser(userData);
+            closeModal();
+            const users = await fetchUsers();
+            populateUserTable(users);
+        });
+
+        // Initial load
+        (async () => {
+            const users = await fetchUsers();
+            populateUserTable(users);
+        })();
+    </script>
+</body>
+</html>
