@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Doctor Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* The CSS remains the same as in the clerk dashboard */
+        /* ... (include all the CSS from the clerk dashboard here) ... */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h2>Dashboard</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-user"></i> Patient Records</a></li>
+                    <li><a href="#"><i class="fas fa-notes-medical"></i> Medical History</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                    <li><a href="#"><i class="fas fa-prescription"></i> Prescriptions</a></li>
+                    <li><a href="#"><i class="fas fa-flask"></i> Lab Results</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Patient Progress</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>Doctor Dashboard</h1>
+            </header>
+            <section class="stats">
+                <div class="stat-item">
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Patients Today</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Pending Reports</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">95%</div>
+                    <div class="stat-label">Patient Satisfaction</div>
+                </div>
+            </section>
+            <div class="dashboard-grid">
+                <div class="dashboard-item">
+                    <h2>Patient Records</h2>
+                    <p>Access and update patient medical records and history.</p>
+                    <button class="btn">View Records</button>
+                </div>
+                <div class="dashboard-item">
+                    <h2>Appointments</h2>
+                    <p>Manage your daily schedule and patient appointments.</p>
+                    <button class="btn">Check Schedule</button>
+                </div>
+                <div class="dashboard-item">
+                    <h2>Prescriptions</h2>
+                    <p>Write and manage patient prescriptions securely.</p>
+                    <button class="btn">New Prescription</button>
+                </div>
+                <div class="dashboard-item">
+                    <h2>Lab Results</h2>
+                    <p>Review and analyze patient laboratory test results.</p>
+                    <button class="btn">View Results</button>
+                </div>
+                <div class="dashboard-item">
+                    <h2>Patient Progress</h2>
+                    <p>Track and update patient treatment progress.</p>
+                    <button class="btn">Update Progress</button>
+                </div>
+                <div class="dashboard-item">
+                    <h2>Medical Certificates</h2>
+                    <p>Generate and sign medical certificates for patients.</p>
+                    <button class="btn">New Certificate</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
